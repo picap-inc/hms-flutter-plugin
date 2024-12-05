@@ -1,0 +1,21 @@
+
+# FVM Version Cache
+.fvm/
+/.fvmrc
+/.idea/vcs.xml
+/flutter-hms-location/.dart_tool/version
+/flutter-hms-push/.dart_tool/version
+/flutter-hms-availability/.dart_tool/version
+/.idea/hms-flutter-plugin.iml
+/.idea/modules.xml
+/.idea/caches/deviceStreaming.xml
+/flutter-hms-availability/.dart_tool/package_config.json
+/.idea/libraries/Dart_SDK.xml
+/.idea/git_toolbox_blame.xml
+/.idea/misc.xml
+/.idea/libraries/Dart_Packages.xml
+/flutter-hms-push/.dart_tool/package_config.json
+/flutter-hms-location/.dart_tool/package_config.json
+/flutter-hms-availability/.dart_tool/package_config_subset
+/flutter-hms-location/.dart_tool/package_config_subset
+/flutter-hms-push/.dart_tool/package_config_subset
