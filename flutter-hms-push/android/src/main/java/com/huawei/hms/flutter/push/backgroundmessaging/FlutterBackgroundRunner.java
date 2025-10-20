@@ -104,8 +104,14 @@ public class FlutterBackgroundRunner implements MethodCallHandler {
         Handler mainHandler = new Handler(Looper.getMainLooper());
         Runnable runnable = () -> {
             FlutterLoader flutterLoader = new FlutterLoader();
-            flutterLoader.startInitialization(Objects.requireNonNull(PluginContext.getContext()));
-            flutterLoader.ensureInitializationCompleteAsync(PluginContext.getContext(), null, mainHandler, () -> {
+            // Fix: Use the context parameter instead of PluginContext.getContext() to avoid NullPointerException
+            Context appContext = context != null ? context : PluginContext.getContext();
+            if (appContext == null) {
+                Log.e(TAG, "Context is null, cannot start background isolate");
+                return;
+            }
+            flutterLoader.startInitialization(appContext);
+            flutterLoader.ensureInitializationCompleteAsync(appContext, null, mainHandler, () -> {
                 Log.i(TAG, "Starting Background Runner");
                 final String appBundlePath = flutterLoader.findAppBundlePath();
                 final AssetManager assets = context.getAssets();
