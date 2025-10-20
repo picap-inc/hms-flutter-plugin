@@ -52,7 +52,7 @@ public class GeocoderMethodHandler implements MethodCallHandler {
     }
 
     private void initGeocoderService(final MethodCall call, final MethodChannel.Result result) {
-        Map localeMap = call.argument("locale");
+        Map<String, Object> localeMap = call.argument("locale");
         Locale locale = GeocoderUtils.fromMapToLocale(localeMap);
         geocoderService = LocationServices.getGeocoderService(activity, locale);
         Log.i(TAG, "Geocoder Service has been initialized.");
@@ -61,7 +61,7 @@ public class GeocoderMethodHandler implements MethodCallHandler {
 
     private void getFromLocation(final MethodCall call, final MethodChannel.Result result) {
 
-        Map requestMap = call.argument("getFromLocationRequest");
+        Map<String, Object> requestMap = call.argument("getFromLocationRequest");
         GetFromLocationRequest getFromLocationRequest = GeocoderUtils.fromMapToGetFromLocationRequest(requestMap);
 
         if (geocoderService == null) {
@@ -76,7 +76,7 @@ public class GeocoderMethodHandler implements MethodCallHandler {
     }
 
     private void getFromLocationName(final MethodCall call, final MethodChannel.Result result) {
-        Map requestMap = call.argument("getFromLocationNameRequest");
+        Map<String, Object> requestMap = call.argument("getFromLocationNameRequest");
         GetFromLocationNameRequest getFromLocationNameRequest = GeocoderUtils.fromMapToGetFromLocationNameRequest(
             requestMap);
 

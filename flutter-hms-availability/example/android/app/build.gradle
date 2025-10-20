@@ -25,16 +25,17 @@ apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 33
+    namespace 'com.huawei.hms.flutter.hmsavailability_example'
+    compileSdkVersion 35
 
     lintOptions {
         disable 'InvalidPackage'
     }
 
     defaultConfig {
-        applicationId "<package_name>"
-        minSdkVersion 19
-        targetSdkVersion 33
+        applicationId "com.huawei.hms.flutter.hmsavailability_example"
+        minSdkVersion 23
+        targetSdkVersion 35
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -52,7 +53,7 @@ android {
 
     buildTypes {
         debug {
-            signingConfig signingConfigs.config
+            //signingConfig signingConfigs.config
         }
         release {
             signingConfig signingConfigs.config
